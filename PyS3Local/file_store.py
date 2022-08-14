@@ -220,8 +220,8 @@ class FileStore(object):
         m = hashlib.new('md5')
 
         headers = {}
-        for key in handler.headers:
-            headers[key.lower()] = handler.headers[key]
+        for header_key in handler.headers:
+            headers[header_key.lower()] = handler.headers[header_key]
         if 'content-type' not in headers:
             headers['content-type'] = 'application/octet-stream'
 
@@ -257,7 +257,7 @@ class FileStore(object):
             config.set('metadata', 'modified_date', metadata['modified_date'])
         with open(metafile, 'w') as configfile:
             config.write(configfile)
-        return S3Item(key, **metadata)
+        return S3Item(key_name, **metadata)
 
     def delete_item(self, bucket_name, item_name):
         dirname = os.path.join(self.root, bucket_name, item_name)
