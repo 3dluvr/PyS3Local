@@ -1,0 +1,30 @@
+A fork of mock-s3, a python port of Fake-S3.
+
+Updated to get it working in Py3 then possibly extending further.
+
+
+INSTALL:
+
+    python setup.py install
+
+
+USE:
+
+create a fake credentials file with something like:
+
+    AWSAccessKeyId=12345
+    AWSSecretKey=12345
+
+set the env variable before running examples, so boto can find it and use it:
+
+    export AWS_CREDENTIAL_FILE="<path/to/fake_credentials>"
+
+start the server in another window
+
+    python PyS3Local/main.py
+
+then
+
+    cd examples
+
+and run some examples...
