@@ -129,7 +129,8 @@ class S3Handler(BaseHTTPRequestHandler):
                 keys.append(obj.find('Key').text)
             delete_items(self, bucket_name, keys)
         else:
-            self.wfile.write('%s: [%s] %s' % (req_type, bucket_name, item_name))
+            resp = '%s: [%s] %s' % (req_type, bucket_name, item_name)
+            self.wfile.write(resp.encode('utf-8'))
 
     def do_PUT(self):
         parsed_path = urlparse(self.path)
@@ -139,7 +140,7 @@ class S3Handler(BaseHTTPRequestHandler):
         bucket_name = None
         item_name = None
         req_type = None
-
+        print(self.headers)
         mock_hostname = self.server.mock_hostname
         if host != mock_hostname and mock_hostname in host:
             idx = host.index(mock_hostname)
