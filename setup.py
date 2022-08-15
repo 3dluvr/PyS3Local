@@ -20,7 +20,7 @@ setup(
     long_description=long_description,
 
     author='3dluvr',
-    author_email='3dluvr@gmail.com',
+    author_email='3dluvr@users.noreply.github.com',
 
     url='https://github.com/3dluvr/PyS3Local',
     download_url='https://github.com/3dluvr/PyS3Local/tarball/master',
@@ -46,7 +46,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'pys3local = pys3local.main:main'
+            'PyS3Local = PyS3Local.main:main'
             ],
         },
 
